@@ -64,11 +64,5 @@ void Plane::readFile(string filePath){
 
 }
 
-int _tmain(int argc, _TCHAR* argv[])
-{
-	testFunc();
-	int a;
-	cin >> a;
-	return 0;
-}
+int _tmain(int argc, _TCHAR* argv[]) { }
 
