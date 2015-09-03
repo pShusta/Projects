@@ -22,7 +22,17 @@ public:
 	int month;
 	int year;
 	void output();
+	//the friend modifier allows direct access to the private variables of the class.
+	const DayOfYear operator -(const DayOfYear day2);
+	//prefered way to overload modifiers is as class methods(nnot using friend), not always possible.
+	//ex. >> and << opereators
+	friend ostream& operator <<(ostream& outputStream, const DayOfYear day1);
+	friend istream& operator >>(istream& inputStream, DayOfYear day1);
 };
+
+ostream& operator <<(ostream& outputStream, const DayOfYear day1){
+	return outputStream;
+}
 
 void alterDay(){
 	DayOfYear _day;
@@ -34,6 +44,16 @@ void DayOfYear::output(){
 	case 1:
 		break;
 	}
+}
+
+//the folloing lines explain how to tell the compiler how to add DayOfYear objects
+//you can also do this for == - and -(negate)
+//== and - work the same as +, -(negate) is set up the same as + but you only pass one variable
+const DayOfYear operator +(const DayOfYear& day1, const DayOfYear& day2);
+
+const DayOfYear operator +(const DayOfYear& day1, const DayOfYear& day2){
+	//explain how to add a DayOfYear to a DayOfYear then return a new day of year;
+	return DayOfYear();
 }
 
 /*

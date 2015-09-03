@@ -64,6 +64,7 @@ void Plane::printMap() {
 		for (int j = 0; j < columns; j++){
 			cout << seats[i][j] << " ";
 		}
+		cout << endl;
 	}
 }
 
@@ -107,6 +108,7 @@ void Plane::writeFile(string filePath){
 void Plane::readFile(string filePath){
 	fstream inputStream;
 	inputStream.open("plane.txt");
+	cout << inputStream.is_open();
 
 	int _rows, _columns;
 	inputStream >> _rows >> _columns;
@@ -116,7 +118,7 @@ void Plane::readFile(string filePath){
 	//Reset seats[][] to a blank array
 	for (int i = 0; i < 20; i++){
 		for (int j = 0; j < 10; j++){
-			seats[i][j] = "B";
+			seats[i][j] = numberToLetter(j+1);
 		}
 	}
 
